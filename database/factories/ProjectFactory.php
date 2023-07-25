@@ -17,11 +17,13 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            "title" => fake() -> words(fake() -> numberBetween(1, 4), true),
-            "description" => fake() -> words(fake() -> numberBetween(1, 255), true),
-            "thumb" => "http://picsum.photos/350/350",
-            "category" => fake() -> words(fake() -> numberBetween(1, 3), true),
-
+            "name" => fake() -> words(3, true),
+            "description" => fake() -> paragraph(),
+            "start_date" => fake() -> date(),
+            "end_date" => fake() -> date(),
+            "difficulty" =>  fake() -> randomElement([
+                'facile', 'medio', 'difficile'
+            ])
         ];
     }
 }
